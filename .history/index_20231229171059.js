@@ -3,7 +3,7 @@ const app = express()
 const port = 42600
 const http = require('http');
 const WebSocket = require('ws');
-const User = require('./models/user');
+const User = require('../models/user');
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
