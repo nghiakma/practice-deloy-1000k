@@ -1,5 +1,5 @@
 var mysql = require('mysql');
-require("dotenv").config();
+var dotenv = require('dotenv');
 
 var dbConfig = {
   host: process.env.DB_HOST,
