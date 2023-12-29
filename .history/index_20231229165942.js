@@ -9,9 +9,9 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 app.use(express.json());
-require('./routes/userRouter')(app);
-require('./routes/historyRouter')(app);
-require('./routes/adminRouter')(app);
+require('./app/routers/history.router')(app);
+require('./app/routers/user.router')(app);
+require('./app/routers/admin.router')(app);
 
 app.get('/', (req, res) => {
     // Test Absolute import mapOrde

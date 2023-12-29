@@ -1,17 +1,19 @@
 const express = require('express')
-const app = express()
+const app = express().router()
 const port = 42600
 const http = require('http');
 const WebSocket = require('ws');
-
+const adminRouter = require("./routes/adminRouter");
+const authRouter = require("./routes/historyRouter");
+const userRouter = require("./routes/userRouter");
 
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
 app.use(express.json());
-require('./routes/userRouter')(app);
-require('./routes/historyRouter')(app);
-require('./routes/adminRouter')(app);
+app.use(authRouter);
+app.use(adminRouter);
+app.use(userRouter);
 
 app.get('/', (req, res) => {
     // Test Absolute import mapOrde
